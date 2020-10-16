@@ -7,10 +7,11 @@
 
 #include <iostream>
 
+#include "Items.h"
 #include "AsmInclusions.h"
 
 int main()
-{a
+{
     std::cout << func() << std::endl;
     return 0;
 }
