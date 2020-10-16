@@ -1,8 +1,9 @@
 section .text
 
-bit 64
+bits 64
 
 global func
 func:
     mov rax, 3
+    add rax, 2
     ret
