@@ -7,10 +7,11 @@
 // potion item
 // has a name, monetary value, potency value, and effect
 // can have any effect other than "NONE"
-class Potion
+class Potion : public Item
 {
-    std::string name_;
-    int value_;
+public:
+
+private:
     int potency_;
     Effect effect_;
 };

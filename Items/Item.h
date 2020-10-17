@@ -18,9 +18,12 @@ class Item
 public:
 
     //Constructors
-    Item();
+    Item() : Item("VOID", 0, true)
+
     Item(std::string name, int value, bool sellable) : 
-        name_(name), value_(value), sellable_(sellable) {};
+        name_(name), value_(value), sellable_(sellable) {}
+
+protected:
 
     std::string name_;
     int value_;

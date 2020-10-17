@@ -14,15 +14,15 @@
 // weapon item
 // has a name, monetary value, attack damage, and effect
 // can have any effect
-class Weapon
+class Weapon : public Item 
 {
 public:
 
     // Default Constructor
     Weapon();
 
-    std::string name_;
-    int value_;
+private:
+
     int attack_;
     Effect effect_;
 };

@@ -14,10 +14,11 @@
 // Armor item
 // has a name, monetary value, defense rating, and effect
 // can have effects "INCREASE" "RESIST" "NONE" (4-6, 10-12)
-class Armor
+class Armor : public Item
 {
-    std::string name_;
-    int value_;
+public:
+
+private:
     int defense_;
     Effect effect_;
 };
