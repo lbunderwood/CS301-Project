@@ -7,11 +7,16 @@
 
 #include <iostream>
 
-#include "Item.h"
+#include "Items/Item.h"
+#include "Weapon.h"
+#include "Armor.h"
+#include "Potion.h"
 #include "AsmInclusions.h"
 
 int main()
 {
-    std::cout << func() << std::endl;
+    Item skull;
+    Weapon sword;
+    Potion healPotion;
     return 0;
 }
