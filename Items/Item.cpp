@@ -10,7 +10,7 @@
 
 #include "Item.h"
 
-std::string Item::to_string()
+std::string Item::to_string() const
 {
     std::stringstream value;
     value << std::setw(8) << value_;

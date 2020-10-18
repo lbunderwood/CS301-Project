@@ -27,7 +27,7 @@ public:
 
     Item operator[](std::size_t index);
 
-private:
+protected:
 
     std::vector<Item> items_;
 

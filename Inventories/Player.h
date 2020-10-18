@@ -21,7 +21,7 @@ public:
 
     Player(std::vector<Item> items) : Inventory(items) {};
 
-    std::string to_string();
+    std::string to_string() const;
 
 private:
 

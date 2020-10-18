@@ -8,14 +8,15 @@
 
 #include "Player.h"
 #include <string>
+#include <ostream>
 
-std::string Player::to_string()
+std::string Player::to_string() const
 {
     std::string output = "";
     
-    for(std::size_t i = 0; i < items_; ++i)
+    for(std::size_t i = 0; i < items_.size(); ++i)
     {
-        output += items_[i].to_string() + "\n"
+        output += items_[i].to_string() + "\n";
     }
 
     output += "\nShekels : " + std::to_string(shekels_);
@@ -25,6 +26,6 @@ std::string Player::to_string()
 
 std::ostream operator<<(std::ostream& os, const Player& player)
 {
-    os << to_string();
+    os << player.to_string();
     return os;
 }
