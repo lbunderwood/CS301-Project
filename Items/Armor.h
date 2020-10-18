@@ -3,7 +3,7 @@
 // CS301
 // CS301 - Project
 // InventoryAndShop
-// Header file for Armor class
+// Header file for Armor : Item class
 
 #ifndef ARMOR_H
 #define ARMOR_H

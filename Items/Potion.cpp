@@ -3,4 +3,4 @@
 // CS301
 // CS301 - Project
 // InventoryAndShop
-// Source file for Potion class
+// Source file for Potion : Item class

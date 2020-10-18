@@ -8,15 +8,12 @@
 #include <iostream>
 
 #include "Items/Item.h"
-#include "Weapon.h"
-#include "Armor.h"
-#include "Potion.h"
+#include "Items/Weapon.h"
+#include "Items/Armor.h"
+#include "Items/Potion.h"
 #include "AsmInclusions.h"
 
 int main()
 {
-    Item skull;
-    Weapon sword;
-    Potion healPotion;
     return 0;
 }

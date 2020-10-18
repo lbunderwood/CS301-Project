@@ -3,4 +3,4 @@
 // CS301
 // CS301 - Project
 // InventoryAndShop
-// Source file for Armor class
+// Source file for Armor : Item class

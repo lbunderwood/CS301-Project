@@ -3,7 +3,7 @@
 // CS301
 // CS301 - Project
 // InventoryAndShop
-// Header file for Weapon class
+// Header file for Weapon : Item class
 
 #ifndef WEAPON_H
 #define WEAPON_H

@@ -3,7 +3,7 @@
 // CS301
 // CS301 - Project
 // InventoryAndShop
-// Header file containing various classes for items
+// Header file containing generic Item class
 
 #ifndef ITEM_H
 #define ITEM_H
@@ -18,7 +18,7 @@ class Item
 public:
 
     //Constructors
-    Item() : Item("VOID", 0, true)
+    Item() : Item("VOID", 0, true) {}
 
     Item(std::string name, int value, bool sellable) : 
         name_(name), value_(value), sellable_(sellable) {}

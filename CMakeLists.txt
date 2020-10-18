@@ -5,7 +5,10 @@ include(CTest)
 enable_testing()
 
 add_executable(
-    InventoryAndShop main.cpp functions.obj AsmInclusions.h 
+    InventoryAndShop 
+    main.cpp 
+    functions.obj 
+    AsmInclusions.h 
     Items/Item.h
     Items/Item.cpp
     Items/Effect.h
@@ -15,6 +18,12 @@ add_executable(
     Items/Weapon.h
     Items/Potion.h
     Items/Potion.cpp
+    Inventories/Inventory.cpp
+    Inventories/Inventory.h
+    Inventories/Player.h
+    Inventories/Player.cpp
+    Inventories/Shop.h
+    Inventories/Shop.cpp
 )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
