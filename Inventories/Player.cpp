@@ -12,19 +12,22 @@
 
 std::string Player::to_string() const
 {
-    std::string output = "";
+    std::string output = 
+    "\n----------------------------------------------------"
+    "\n-                 Player Inventory                 -"
+    "\n----------------------------------------------------\n\n";
     
     for(std::size_t i = 0; i < items_.size(); ++i)
     {
         output += items_[i].to_string() + "\n";
     }
 
-    output += "\nShekels : " + std::to_string(shekels_);
+    output += "\n\t\t\t\t\tShekels : " + std::to_string(shekels_) + "\n";
 
     return output;
 }
 
-std::ostream operator<<(std::ostream& os, const Player& player)
+std::ostream& operator<<(std::ostream& os, const Player& player)
 {
     os << player.to_string();
     return os;

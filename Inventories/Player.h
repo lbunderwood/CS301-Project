@@ -19,7 +19,7 @@ class Player : public Inventory
 {
 public:
 
-    Player(std::vector<Item> items) : Inventory(items) {};
+    Player(std::vector<Item> items) : Inventory(items), shekels_(10) {};
 
     std::string to_string() const;
 
