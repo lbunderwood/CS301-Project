@@ -10,6 +10,7 @@
 #define INVENTORY_H
 
 #include <vector>
+#include <cstddef>
 
 #include "../Items/Item.h"
 
@@ -17,10 +18,16 @@ class Inventory
 {
 public:
 
-    Inventory();
-
     Inventory(std::vector<Item> items)
         : items_(items) {}
+
+    void push_back(Item item);
+
+    void pop_back();
+
+    Item& operator[](std::size_t index);
+
+    const Item operator[](std::size_t index) const;
 
 private:
 

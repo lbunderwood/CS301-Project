@@ -4,11 +4,7 @@ project(InventoryAndShop VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-add_executable(
-    InventoryAndShop 
-    main.cpp 
-    functions.obj 
-    AsmInclusions.h 
+add_executable(InventoryAndShop main.cpp functions.obj AsmInclusions.h 
     Items/Item.h
     Items/Item.cpp
     Items/Effect.h

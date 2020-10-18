@@ -23,6 +23,8 @@ public:
     Item(std::string name, int value, bool sellable) : 
         name_(name), value_(value), sellable_(sellable) {}
 
+    std::string to_string();
+
 protected:
 
     std::string name_;

@@ -4,3 +4,15 @@
 // CS301 - Project
 // InventoryAndShop
 // Source file for item class
+
+#include <iomanip>
+#include <strstream>
+
+#include "Item.h"
+
+std::string Item::to_string()
+{
+    std::stringstream value;
+    value << std::setw(8) << value_;
+    return name_ + value.str();
+}
