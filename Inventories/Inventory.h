@@ -25,9 +25,7 @@ public:
 
     void pop_back();
 
-    Item& operator[](std::size_t index);
-
-    const Item operator[](std::size_t index) const;
+    Item operator[](std::size_t index);
 
 private:
 

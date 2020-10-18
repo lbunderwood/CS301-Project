@@ -18,12 +18,7 @@ void Inventory::pop_back()
     items_.pop_back();
 }
 
-Item& Inventory::operator[](std::size_t index)
-{
-    return items_[index];
-}
-
-const Item Inventory::operator[](std::size_t index)
+Item Inventory::operator[](std::size_t index)
 {
     return items_[index];
 }
