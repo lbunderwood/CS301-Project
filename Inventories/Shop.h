@@ -22,15 +22,24 @@ public:
     Shop(std::vector<Item> items, std::size_t shekels) 
         : Inventory(items), shekels_(shekels) {}
 
-    std::string to_string() const;
+    std::string banner() const;
 
     void buyItem(std::size_t index, Player& player);
 
     void sellItem(std::size_t index, Player& player);
 
+    void buyMenu(Player& player);
+
+    void sellMenu(Player& player);
+
 private:
 
     std::size_t shekels_;
+
+    std::string banner =
+        "\n----------------------------------------------------------"
+        "\n-                  Welcome to The Shop!                  -"
+        "\n----------------------------------------------------------\n\n";
 
 };
 

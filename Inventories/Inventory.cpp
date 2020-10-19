@@ -12,11 +12,11 @@
 
 std::string Inventory::to_string() const
 {
-    std::string output = "                name:   atk/def:    effect:     value:\n\n";
+    std::string output = "                 name:   atk/def:    effect:     value:\n\n";
 
     for(std::size_t i = 0; i < items_.size(); ++i)
     {
-        output += items_[i].to_string() + "\n";
+        output += std::to_string(i + 1) + items_[i].to_string() + "\n";
     }
 
     return output;

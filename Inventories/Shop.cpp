@@ -12,20 +12,7 @@
 #include "../AsmInclusions.h"
 
 #include<string>
-
-std::string Shop::to_string() const
-{
-    std::string output = 
-    "\n----------------------------------------------------------"
-    "\n-                  Welcome to The Shop!                  -"
-    "\n----------------------------------------------------------\n\n";
-    
-    output += Inventory::to_string();
-
-    output += "\n\t\t\t\t\tShop Shekels : " + std::to_string(shekels_) + "\n";
-
-    return output;
-}
+#include<iostream>
 
 void Shop::buyItem(std::size_t index, Player& player)
 {
@@ -41,4 +28,21 @@ void Shop::sellItem(std::size_t index, Player& player)
 
     push_back(player[index]);
     player.removeItem(index);
+}
+
+void Shop::buyMenu(Player& player)
+{
+    std::cout << banner 
+              << Inventory::to_string() 
+              << "\n\t\t\t\t\t     Shekels : " 
+              << std::to_string(player.getShekels()) 
+              << "\nWhat would you like to buy?\n"
+              << "Enter the number beside the item you would like to buy, or a 0 to exit.";
+
+    
+}
+
+void Shop::sellMenu(Player& player)
+{
+    //output += "\n\t\t\t\t\tShop Shekels : " + std::to_string(shekels_) + "\n";
 }
