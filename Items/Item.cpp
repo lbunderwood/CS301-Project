@@ -17,3 +17,8 @@ std::string Item::to_string() const
            << std::setw(10) << value_;
     return output.str();
 }
+
+int Item::getValue() const
+{
+    return value_;
+}

@@ -2,8 +2,9 @@ section .text
 
 bits 64
 
-global func
-func:
-    mov rax, 3
-    add rax, 2
+global moveMoney
+moveMoney:
+    sub [rdi], rsi
+    add [rdi + 8], rsi
     ret
+    

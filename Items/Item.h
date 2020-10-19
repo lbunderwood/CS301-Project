@@ -25,6 +25,8 @@ public:
 
     std::string to_string() const;
 
+    int getValue() const;
+
 protected:
 
     std::string name_;

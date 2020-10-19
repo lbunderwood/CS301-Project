@@ -23,12 +23,14 @@ public:
 
     std::string to_string() const;
 
+    std::size_t& getShekels();
+
 private:
 
     std::size_t shekels_;
 
 };
 
-std::ostream operator<<(std::ostream os, Player player);
+std::ostream& operator<<(std::ostream os, Player player);
 
 #endif // #ifndef PLAYER_H

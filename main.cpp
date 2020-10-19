@@ -27,7 +27,11 @@ int main()
 
     Player player(items);
 
-    std::cout << player.to_string();
+    Shop shop(items, 100);
+
+    shop.buyItem(0, player);
+
+    std::cout << player.to_string() << shop.to_string();
 
     return 0;
 }

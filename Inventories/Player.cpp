@@ -27,6 +27,12 @@ std::string Player::to_string() const
     return output;
 }
 
+std::size_t& Player::getShekels()
+{
+    return shekels_;
+}
+
+
 std::ostream& operator<<(std::ostream& os, const Player& player)
 {
     os << player.to_string();
