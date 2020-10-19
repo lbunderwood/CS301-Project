@@ -13,7 +13,9 @@
 std::string Item::to_string() const
 {
     std::stringstream output;
-    output << std::setw(20) << name_ 
+    output << std::setw(20) << name_ << " "
+           << std::setw(10) << "" << " "
+           << std::setw(10) << "" << " "
            << std::setw(10) << value_;
     return output.str();
 }

@@ -21,6 +21,8 @@ public:
     Inventory(std::vector<Item> items)
         : items_(items) {}
 
+    std::string to_string() const;
+
     void push_back(Item item);
 
     void pop_back();

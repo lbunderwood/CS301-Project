@@ -13,16 +13,12 @@
 std::string Player::to_string() const
 {
     std::string output = 
-    "\n----------------------------------------------------"
-    "\n-                 Player Inventory                 -"
-    "\n----------------------------------------------------\n\n";
+    "\n----------------------------------------------------------"
+    "\n-                    Player Inventory                    -"
+    "\n----------------------------------------------------------\n\n";
     
-    for(std::size_t i = 0; i < items_.size(); ++i)
-    {
-        output += items_[i].to_string() + "\n";
-    }
-
-    output += "\n\t\t\t\t\tShekels : " + std::to_string(shekels_) + "\n";
+    output += Inventory::to_string();
+    output += "\n\t\t\t\t\t     Shekels : " + std::to_string(shekels_) + "\n";
 
     return output;
 }

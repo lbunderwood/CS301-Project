@@ -16,16 +16,13 @@
 std::string Shop::to_string() const
 {
     std::string output = 
-    "\n----------------------------------------------------"
-    "\n-               Welcome to The Shop!               -"
-    "\n----------------------------------------------------\n\n";
+    "\n----------------------------------------------------------"
+    "\n-                  Welcome to The Shop!                  -"
+    "\n----------------------------------------------------------\n\n";
     
-    for(std::size_t i = 0; i < items_.size(); ++i)
-    {
-        output += items_[i].to_string() + "\n";
-    }
+    output += Inventory::to_string();
 
-    output += "\n\t\t\t\tShop Shekels : " + std::to_string(shekels_) + "\n";
+    output += "\n\t\t\t\t\tShop Shekels : " + std::to_string(shekels_) + "\n";
 
     return output;
 }

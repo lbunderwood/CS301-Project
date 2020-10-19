@@ -29,7 +29,7 @@ int main()
 
     Shop shop(items, 100);
 
-    shop.buyItem(0, player);
+    shop.sellItem(0, player);
 
     std::cout << player.to_string() << shop.to_string();
 
