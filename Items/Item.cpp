@@ -22,3 +22,8 @@ int Item::getValue() const
 {
     return value_;
 }
+
+bool Item::isSellable()
+{
+    return sellable_;
+}

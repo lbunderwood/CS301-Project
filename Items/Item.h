@@ -27,6 +27,8 @@ public:
 
     int getValue() const;
 
+    bool isSellable();
+
 protected:
 
     std::string name_;

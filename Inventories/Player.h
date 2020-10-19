@@ -25,6 +25,8 @@ public:
 
     std::size_t& getShekels();
 
+    void removeItem(std::size_t index);
+
 private:
 
     std::size_t shekels_;

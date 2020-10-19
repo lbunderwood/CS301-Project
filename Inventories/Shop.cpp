@@ -32,9 +32,16 @@ std::string Shop::to_string() const
 
 void Shop::buyItem(std::size_t index, Player& player)
 {
-    std::size_t takePut[2] = {shekels_, player.getShekels()};
-    moveMoney(takePut, items_[index].getValue());
+    moveMoney(&player.getShekels(), &shekels_, items_[index].getValue());
 
     player.push_back(items_[index]);
     items_.erase(items_.begin() + index);
+}
+
+void Shop::sellItem(std::size_t index, Player& player)
+{
+    moveMoney(&shekels_, &player.getShekels(), items_[index].getValue());
+
+    push_back(player[index]);
+    player.removeItem(index);
 }

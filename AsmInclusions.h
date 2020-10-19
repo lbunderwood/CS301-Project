@@ -8,6 +8,6 @@
 #ifndef ASMINCLUSIONS_H
 #define ASMINCLUSIONS_H
 
-extern "C" void moveMoney(std::size_t[2], int);
+extern "C" void moveMoney(std::size_t*, std::size_t*, int);
 
 #endif // #include ASMFUNCTIONS_H

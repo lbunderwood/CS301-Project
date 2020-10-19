@@ -4,7 +4,7 @@ bits 64
 
 global moveMoney
 moveMoney:
-    sub [rdi], rsi
-    add [rdi + 8], rsi
+    sub [rdi], rdx
+    add [rsi], rdx
     ret
     

@@ -26,6 +26,8 @@ public:
 
     void buyItem(std::size_t index, Player& player);
 
+    void sellItem(std::size_t index, Player& player);
+
 private:
 
     std::size_t shekels_;
