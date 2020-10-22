@@ -28,7 +28,11 @@ public:
 
     void sellItem(std::size_t index, Player& player);
 
+    void printBuyMenu(Player& player);
+
     void buyMenu(Player& player);
+
+    void printSellMenu(Player& player);
 
     void sellMenu(Player& player);
 

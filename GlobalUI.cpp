@@ -3,13 +3,13 @@
 // CS301
 // CS301 - Project
 // InventoryAndShop
-// Source file for various utility functions
+// Source file for various global functions used in the UI
 
 #include<string>
 #include<iostream>
 #include<sstream>
 
-#include "Utility.h"
+#include "GlobalUI.h"
 
 // THIS FUNCTION WRITTEN BY GLENN CHAPPELL - modified only slightly by Luke Underwood
 // getInt
