@@ -22,8 +22,6 @@ public:
     Shop(std::vector<Item> items, std::size_t shekels) 
         : Inventory(items), shekels_(shekels) {}
 
-    std::string banner() const;
-
     void buyItem(std::size_t index, Player& player);
 
     void sellItem(std::size_t index, Player& player);
@@ -42,7 +40,7 @@ private:
 
     std::string banner =
         "\n----------------------------------------------------------"
-        "\n-                  Welcome to The Shop!                  -"
+        "\n|                  Welcome to The Shop!                  |"
         "\n----------------------------------------------------------\n\n";
 
 };

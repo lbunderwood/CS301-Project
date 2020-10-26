@@ -16,22 +16,78 @@
 #include "Inventories/Player.h"
 #include "Inventories/Shop.h"
 #include "AsmInclusions.h"
+#include "GlobalUI.h"
 
 int main()
 {
-    Item i1("Small Dagger", 5, true);
-    Item i2("Rope", 10, true);
-    Item i3("Wolf Pelt", 7, true);
 
-    std::vector<Item> items = {i1, i2, i3};
+    // initialize player inventory
+    Player player(std::vector<Item>
+        {
+            Item("Iron Dagger", 5, true), 
+            Item("Rope", 10, true), 
+            Item("Plain Clothes", 15, true)
+        });
 
-    Player player(items);
+    // initialize shop inventory
+    // This will later be replaced with a randomly-stocked shop
+    Shop shop(std::vector<Item>
+        {
+            Item("Milk", 3, true),
+            Item("Cooked Steak", 7, true),
+            Item("Arrows X5", 20, true),
+            Item("Traveller's Cloak", 30, true),
+            Item("Torch", 10, true),
+            Item("Leather Strips", 12, true),
+            Item("Steel Shortsword", 40, true)
+        }, 100);
 
-    Shop shop(items, 100);
+    // Variables for use inside loop
+    int menuChoice = 0;
+    bool keepGoing = true;
+    std::string errMsg = "Invalid Input. Try Again.";
 
-    shop.sellItem(0, player);
+    // Main Program Loop
+    while(keepGoing)
+    {
+        // Print menu
+        std::cout <<
+        "\n----------------------------------------------------------"
+        "\n|                  Welcome to The Shop!                  |"
+        "\n----------------------------------------------------------\n\n"
+        "\t1. View Inventory\n"
+        "\t2. Shop - Sell Items\n"
+        "\t3. Shop - Buy Items\n"
+        "\t4. Loot a Chest\n\n"
+        "\t0. Exit\n\n";
 
-    std::cout << player.to_string() << shop.to_string();
+        // Get input
+        if(!getInt("Enter the number next to your desired choice:", menuChoice))
+        {
+            std::cout << errMsg;
+            continue;
+        }
+
+        // Use the input
+        switch(menuChoice)
+        {
+        case 1:
+            std::cout << player.to_string();
+            break;
+        case 2:
+            shop.sellMenu(player);
+            break;
+        case 3:
+            shop.buyMenu(player);
+            break;
+        case 0:
+            keepGoing = false;
+            break;
+        default:
+            std::cout << errMsg;
+            break;
+        };
+    }
 
     return 0;
 }

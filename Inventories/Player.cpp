@@ -14,7 +14,7 @@ std::string Player::to_string() const
 {
     std::string output = 
     "\n----------------------------------------------------------"
-    "\n-                    Player Inventory                    -"
+    "\n|                    Player Inventory                    |"
     "\n----------------------------------------------------------\n\n";
     
     output += Inventory::to_string();
