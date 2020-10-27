@@ -33,6 +33,6 @@ private:
 
 };
 
-std::ostream& operator<<(std::ostream os, Player player);
+//std::ostream& operator<<(std::ostream os, Player player);
 
 #endif // #ifndef PLAYER_H

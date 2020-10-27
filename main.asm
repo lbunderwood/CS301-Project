@@ -12,8 +12,8 @@ extern printMenu
 extern getInt
 extern printErrMsg
 
-global main
-main:
+global mainMenu
+mainMenu:
 
     ; preserve function parameters
     push rdi ; player
@@ -42,7 +42,7 @@ loopStart:
 inputSucceeded:
 
     ; 1 = print player inventory
-    cmp [inputNum], 1
+    cmp DWORD[inputNum], 1
     je printPlayerInv
 
     ; move the player into rdi
@@ -51,15 +51,15 @@ inputSucceeded:
     mov rdi, [rsp - 3*8]
 
     ; 2 = enter the buy menu
-    cmp [inputNum], 2
+    cmp DWORD[inputNum], 2
     je buyMenu
 
     ; 3 = enter the sell menu
-    cmp [inputNum], 3
+    cmp DWORD[inputNum], 3
     je sellMenu
 
     ; 0 = get out of here
-    cmp [inputNum], 0
+    cmp DWORD[inputNum], 0
     je finish
 
 inputFailed:

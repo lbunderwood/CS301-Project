@@ -42,7 +42,7 @@ int main()
             Item("Steel Shortsword", 40, true)
         }, 100);
 
-    main(&player, Player::printInventory, Shop::buyMenu(player), Shop::sellMenu(player));
+    mainMenu(&player, Player::printInventory, Shop::buyMenu, Shop::sellMenu);
 
     /*
     // Variables for use inside loop

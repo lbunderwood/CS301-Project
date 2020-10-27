@@ -7,6 +7,7 @@ enable_testing()
 add_executable(InventoryAndShop 
     main.cpp 
     functions.obj 
+    main.obj
     AsmInclusions.h 
     GlobalUI.h
     GlobalUI.cpp
