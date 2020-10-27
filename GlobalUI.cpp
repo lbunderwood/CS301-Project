@@ -50,3 +50,22 @@ bool getInt(const std::string & prompt,  // Print this before doing input
 
     return true;  // Successful input
 }
+
+//
+void printMenu()
+{
+    std::cout <<
+        "\n----------------------------------------------------------"
+        "\n|                  Welcome to The Shop!                  |"
+        "\n----------------------------------------------------------\n\n"
+        "\t1. View Inventory\n"
+        "\t2. Shop - Sell Items\n"
+        "\t3. Shop - Buy Items\n"
+        "\t4. Loot a Chest\n\n"
+        "\t0. Exit\n\n";
+}
+
+void printErrMsg()
+{
+    std::cout << "Invalid Input. Try Again.";
+}

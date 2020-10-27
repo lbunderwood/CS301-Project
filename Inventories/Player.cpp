@@ -7,20 +7,18 @@
 // Source file for Player : Inventory class
 
 #include "Player.h"
+#include <iostream>
 #include <string>
 #include <ostream>
 
-std::string Player::to_string() const
+void Player::printInventory()
 {
-    std::string output = 
+    std::cout << 
     "\n----------------------------------------------------------"
     "\n|                    Player Inventory                    |"
-    "\n----------------------------------------------------------\n\n";
-    
-    output += Inventory::to_string();
-    output += "\n\t\t\t\t\t     Shekels : " + std::to_string(shekels_) + "\n";
-
-    return output;
+    "\n----------------------------------------------------------\n\n"
+    << Inventory::to_string()
+    << "\n\t\t\t\t\t     Shekels : " << std::to_string(shekels_) << "\n";
 }
 
 std::size_t& Player::getShekels()

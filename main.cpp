@@ -42,6 +42,9 @@ int main()
             Item("Steel Shortsword", 40, true)
         }, 100);
 
+    main(&player, Player::printInventory, Shop::buyMenu(player), Shop::sellMenu(player));
+
+    /*
     // Variables for use inside loop
     int menuChoice = 0;
     bool keepGoing = true;
@@ -50,16 +53,6 @@ int main()
     // Main Program Loop
     while(keepGoing)
     {
-        // Print menu
-        std::cout <<
-        "\n----------------------------------------------------------"
-        "\n|                  Welcome to The Shop!                  |"
-        "\n----------------------------------------------------------\n\n"
-        "\t1. View Inventory\n"
-        "\t2. Shop - Sell Items\n"
-        "\t3. Shop - Buy Items\n"
-        "\t4. Loot a Chest\n\n"
-        "\t0. Exit\n\n";
 
         // Get input
         if(!getInt("Enter the number next to your desired choice:", menuChoice))
@@ -88,6 +81,6 @@ int main()
             break;
         };
     }
-
+    */
     return 0;
 }

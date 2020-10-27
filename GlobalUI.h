@@ -12,4 +12,8 @@
 
 bool getInt(const std::string & prompt, int & n);
 
+void printMenu();
+
+void printErrMsg();
+
 #endif // #ifndef GLOBALUI_H

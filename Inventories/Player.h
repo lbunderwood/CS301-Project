@@ -21,7 +21,7 @@ public:
 
     Player(std::vector<Item> items) : Inventory(items), shekels_(10) {};
 
-    std::string to_string() const;
+    void printInventory();
 
     std::size_t& getShekels();
 
