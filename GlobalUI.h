@@ -16,4 +16,10 @@ void printMenu();
 
 void printErrMsg();
 
+void printInventory(Player* player);
+
+void buyMenu(Player* player, Shop* shop);
+
+void sellMenu( Player* player, Shop* shop);
+
 #endif // #ifndef GLOBALUI_H

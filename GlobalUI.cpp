@@ -10,6 +10,8 @@
 #include<sstream>
 
 #include "GlobalUI.h"
+#include "Inventories/Shop.h"
+#include "Inventories/Player.h"
 
 // THIS FUNCTION WRITTEN BY GLENN CHAPPELL - modified only slightly by Luke Underwood
 // getInt
@@ -68,4 +70,54 @@ void printMenu()
 void printErrMsg()
 {
     std::cout << "Invalid Input. Try Again.";
+}
+
+void printInventory(Player* player)
+{
+    std::cout << 
+    "\n----------------------------------------------------------"
+    "\n|                    Player Inventory                    |"
+    "\n----------------------------------------------------------\n\n"
+    << player->to_string()
+    << "\n\t\t\t\t\t     Shekels : " << std::to_string(player->getShekels()) << "\n";
+}
+
+void buyMenu(Player* player, Shop* shop)
+{
+    while(true)
+    {
+        shop->printBuyMenu(*player);
+
+        int itemNum = 0;
+        if(!getInt("Enter the number beside the item you would like to buy, or a 0 to exit:", itemNum)
+            || itemNum < 0)
+        {
+            std::cout << "Fatal input error. Trying again.";
+            continue;
+        }
+
+        if(itemNum == 0) break;
+
+        shop->buyItem(itemNum - 1, *player);
+    }
+}
+
+void sellMenu(Player* player, Shop* shop)
+{
+    while(true)
+    {
+        shop->printSellMenu(*player);
+
+        int itemNum = 0;    
+        if(!getInt("Enter the number beside the item you would like to sell, or a 0 to exit:", itemNum)
+            || itemNum < 0)
+        {
+            std::cout << "Fatal input error. Trying again.";
+            continue;
+        }
+
+        if(itemNum == 0) break;
+
+        shop->sellItem(itemNum - 1, *player);
+    }
 }

@@ -40,27 +40,6 @@ void Shop::printBuyMenu(Player& player)
               << "\nWhat would you like to buy?\n";    
 }
 
-void Shop::buyMenu(Player& player)
-{
-    while(true)
-    {
-        printBuyMenu(player);
-
-        int itemNum = 0;    
-        if(!getInt("Enter the number beside the item you would like to buy, or a 0 to exit:", itemNum)
-            || itemNum < 0)
-        {
-            std::cout << "Fatal input error. Trying again.";
-            continue;
-        }
-
-        if(itemNum == 0) break;
-
-        buyItem(itemNum - 1, player);
-    }
-
-}
-
 void Shop::printSellMenu(Player& player)
 {
     std::cout << banner 
@@ -68,24 +47,4 @@ void Shop::printSellMenu(Player& player)
               << "\n\t\t\t\t\tShop Shekels : "
               << std::to_string(shekels_)
               << "\nWhat would you like to sell?\n";  
-}
-
-void Shop::sellMenu(Player& player)
-{
-    while(true)
-    {
-        printSellMenu(player);
-
-        int itemNum = 0;    
-        if(!getInt("Enter the number beside the item you would like to sell, or a 0 to exit:", itemNum)
-            || itemNum < 0)
-        {
-            std::cout << "Fatal input error. Trying again.";
-            continue;
-        }
-
-        if(itemNum == 0) break;
-
-        sellItem(itemNum - 1, player);
-    }
 }

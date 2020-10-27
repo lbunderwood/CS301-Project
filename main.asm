@@ -11,15 +11,16 @@ bits 64
 extern printMenu
 extern getInt
 extern printErrMsg
+extern printInventory
+extern buyMenu
+extern sellMenu
 
 global mainMenu
 mainMenu:
 
     ; preserve function parameters
     push rdi ; player
-    push rdx ; print player inventory
-    push rcx ; buy menu
-    push r8  ; sell menu
+    push rdx ; shop
 
 loopStart:
 
@@ -41,22 +42,21 @@ loopStart:
 
 inputSucceeded:
 
+    ;move the player and shop pointers from stack to use
+    mov rdi, [rsp - 8]
+    mov rdx, [rsp]
+
     ; 1 = print player inventory
     cmp DWORD[inputNum], 1
     je printPlayerInv
 
-    ; move the player into rdi
-    ; putting this here to keep it DRY,
-    ; since buy & sell both use it
-    mov rdi, [rsp - 3*8]
-
     ; 2 = enter the buy menu
     cmp DWORD[inputNum], 2
-    je buyMenu
+    je shopBuyMenu
 
     ; 3 = enter the sell menu
     cmp DWORD[inputNum], 3
-    je sellMenu
+    je shopSellMenu
 
     ; 0 = get out of here
     cmp DWORD[inputNum], 0
@@ -69,28 +69,26 @@ inputFailed:
 
 printPlayerInv:
 
-    ; call the third thing on the stack
-    ; this happens to be the player inv
-    call [rsp - 2*8]
+    call printInventory
     jmp loopStart
 
-buyMenu:
+shopBuyMenu:
 
     ; call the second thing on the stack
     ; this happens to be the buy menu
-    call [rsp - 8]
+    call buyMenu
     jmp loopStart
 
-sellMenu:
+shopSellMenu:
 
     ; call the first thing on the stack
     ; this happens to be the sell menu
-    call [rsp]
+    call sellMenu
     jmp loopStart
 
 finish:
     ; clean up the stack
-    add rsp, 4*8
+    add rsp, 2*8
 
     ; end the function, returns void
     ret

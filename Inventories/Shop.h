@@ -28,11 +28,7 @@ public:
 
     void printBuyMenu(Player& player);
 
-    void buyMenu(Player& player);
-
     void printSellMenu(Player& player);
-
-    void sellMenu(Player& player);
 
 private:
 

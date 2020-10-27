@@ -11,16 +11,6 @@
 #include <string>
 #include <ostream>
 
-void Player::printInventory()
-{
-    std::cout << 
-    "\n----------------------------------------------------------"
-    "\n|                    Player Inventory                    |"
-    "\n----------------------------------------------------------\n\n"
-    << Inventory::to_string()
-    << "\n\t\t\t\t\t     Shekels : " << std::to_string(shekels_) << "\n";
-}
-
 std::size_t& Player::getShekels()
 {
     return shekels_;

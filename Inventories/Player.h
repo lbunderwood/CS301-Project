@@ -21,8 +21,6 @@ public:
 
     Player(std::vector<Item> items) : Inventory(items), shekels_(10) {};
 
-    void printInventory();
-
     std::size_t& getShekels();
 
     void removeItem(std::size_t index);
