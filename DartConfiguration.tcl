@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /mnt/c/Users/Luke U/source/repos/CS301-Project
-BuildDirectory: /mnt/c/Users/Luke U/source/repos/CS301-Project
+SourceDirectory: //mnt/c/Users/Luke U/source/repos/CS301-Project
+BuildDirectory: //mnt/c/Users/Luke U/source/repos/CS301-Project
 
 # Where to place the cost data store
 CostDataFile: 
@@ -26,7 +26,7 @@ SubmitURL: http://
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/mnt/c/Users/Luke U/source/repos/CS301-Project"
+ConfigureCommand: "/usr/bin/cmake" "//mnt/c/Users/Luke U/source/repos/CS301-Project"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 
