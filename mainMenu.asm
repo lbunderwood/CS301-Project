@@ -5,9 +5,6 @@
 ; InventoryAndShop
 ; Assembly file containing main program loop
 
-promptMsg:
-    dq 'Enter the number next to your desired choice:', 0
-
 section .text
 bits 64
 
@@ -27,8 +24,7 @@ mainMenu:
 
 loopStart:
 
-    ; print the menu for the user
-    extern printMenu
+    ; print the menu for the user12
     call printMenu
 
     ; set up for getInt
@@ -95,3 +91,6 @@ finish:
 
     ; end the function, returns void
     ret
+
+promptMsg:
+    dq 'Enter the number next to your desired choice:', 0

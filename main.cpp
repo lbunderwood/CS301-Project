@@ -42,22 +42,22 @@ int main()
             Item("Steel Shortsword", 40, true)
         }, 100);
 
-    mainMenu(&player, &shop);
+    //mainMenu(&player, &shop);
 
-    /*
+    
     // Variables for use inside loop
     int menuChoice = 0;
     bool keepGoing = true;
-    std::string errMsg = "Invalid Input. Try Again.";
 
     // Main Program Loop
     while(keepGoing)
     {
+        printMenu();
 
         // Get input
         if(!getInt("Enter the number next to your desired choice:", menuChoice))
         {
-            std::cout << errMsg;
+            printErrMsg();
             continue;
         }
 
@@ -65,22 +65,21 @@ int main()
         switch(menuChoice)
         {
         case 1:
-            std::cout << player.to_string();
+            printInventory(&player);
             break;
         case 2:
-            shop.sellMenu(player);
+            sellMenu(&player, &shop);
             break;
         case 3:
-            shop.buyMenu(player);
+            buyMenu(&player, &shop);
             break;
         case 0:
             keepGoing = false;
             break;
         default:
-            std::cout << errMsg;
+            printErrMsg();
             break;
         };
     }
-    */
     return 0;
 }

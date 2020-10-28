@@ -10,7 +10,6 @@ check_pie_supported()
 add_executable(InventoryAndShop 
     main.cpp 
     functions.o
-    mainMenu.o
     AsmInclusions.h 
     GlobalUI.h
     GlobalUI.cpp
