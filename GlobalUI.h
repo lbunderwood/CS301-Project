@@ -10,6 +10,9 @@
 
 #include<string>
 
+#include "Inventories/Shop.h"
+#include "Inventories/Player.h"
+
 bool getInt(const std::string & prompt, int & n);
 
 void printMenu();

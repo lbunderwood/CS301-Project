@@ -1,13 +1,16 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 3.14)
 project(InventoryAndShop VERSION 0.1.0)
 
 include(CTest)
 enable_testing()
 
+include(CheckPIESupported)
+check_pie_supported()
+
 add_executable(InventoryAndShop 
     main.cpp 
-    functions.obj 
-    main.obj
+    functions.o
+    mainMenu.o
     AsmInclusions.h 
     GlobalUI.h
     GlobalUI.cpp
@@ -27,6 +30,8 @@ add_executable(InventoryAndShop
     Inventories/Shop.h
     Inventories/Shop.cpp
 )
+
+set_property(TARGET InventoryAndShop PROPERTY POSITION_INDEPENDENT_CODE FALSE)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

@@ -5,6 +5,9 @@
 ; InventoryAndShop
 ; Assembly file containing main program loop
 
+promptMsg:
+    dq 'Enter the number next to your desired choice:', 0
+
 section .text
 bits 64
 
@@ -25,11 +28,14 @@ mainMenu:
 loopStart:
 
     ; print the menu for the user
+    extern printMenu
     call printMenu
 
     ; set up for getInt
     mov rdi, [promptMsg]
-    mov rsi, [inputNum]
+    ; we will put the outputted number on the stack (for now)
+    sub rsp, 8
+    mov rdx, [rsp]
 
     call getInt
     
@@ -43,23 +49,24 @@ loopStart:
 inputSucceeded:
 
     ;move the player and shop pointers from stack to use
+    pop rax ; rax = number returned
     mov rdi, [rsp - 8]
     mov rdx, [rsp]
 
     ; 1 = print player inventory
-    cmp DWORD[inputNum], 1
+    cmp rax, 1
     je printPlayerInv
 
     ; 2 = enter the buy menu
-    cmp DWORD[inputNum], 2
+    cmp rax, 2
     je shopBuyMenu
 
     ; 3 = enter the sell menu
-    cmp DWORD[inputNum], 3
+    cmp rax, 3
     je shopSellMenu
 
     ; 0 = get out of here
-    cmp DWORD[inputNum], 0
+    cmp rax, 0
     je finish
 
 inputFailed:
@@ -74,15 +81,11 @@ printPlayerInv:
 
 shopBuyMenu:
 
-    ; call the second thing on the stack
-    ; this happens to be the buy menu
     call buyMenu
     jmp loopStart
 
 shopSellMenu:
 
-    ; call the first thing on the stack
-    ; this happens to be the sell menu
     call sellMenu
     jmp loopStart
 
@@ -92,13 +95,3 @@ finish:
 
     ; end the function, returns void
     ret
-
-section .data
-errMsg:
-    dq "Invalid Input. Try Again.",0
-
-promptMsg:
-    dq "Enter the number next to your desired choice:", 0
-
-inputNum:
-    dd 0
