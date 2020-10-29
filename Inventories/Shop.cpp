@@ -34,7 +34,7 @@ void Shop::sellItem(std::size_t index, Player& player)
 void Shop::printBuyMenu(Player& player)
 {
     std::cout << banner 
-              << Inventory::to_string() 
+              << to_string() 
               << "\n\t\t\t\t\t     Shekels : " 
               << std::to_string(player.getShekels()) 
               << "\nWhat would you like to buy?\n";    
@@ -43,7 +43,7 @@ void Shop::printBuyMenu(Player& player)
 void Shop::printSellMenu(Player& player)
 {
     std::cout << banner 
-              << player.Inventory::to_string() 
+              << player.to_string() 
               << "\n\t\t\t\t\tShop Shekels : "
               << std::to_string(shekels_)
               << "\nWhat would you like to sell?\n";  

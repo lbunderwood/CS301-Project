@@ -13,16 +13,22 @@
 #include "Inventories/Shop.h"
 #include "Inventories/Player.h"
 
-bool getInt(const std::string & prompt, int & n);
+extern "C" 
+{
+    bool getInt(const std::string & prompt, int& n);
 
-void printMenu();
+    bool getIntC(const char*, int* n);
 
-void printErrMsg();
+    void printMenu();
 
-void printInventory(Player* player);
+    void printErrMsg();
 
-void buyMenu(Player* player, Shop* shop);
+    void printInventory(Player* player);
 
-void sellMenu( Player* player, Shop* shop);
+    void buyMenu(Player* player, Shop* shop);
+
+    void sellMenu( Player* player, Shop* shop);
+
+}
 
 #endif // #ifndef GLOBALUI_H

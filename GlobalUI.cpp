@@ -19,7 +19,7 @@
 // fatal error, return false. On successful input, set n to integer that
 // was read and return true.
 bool getInt(const std::string & prompt,  // Print this before doing input
-            int & n)                // Number we input
+            int& n)                // Number we input
 {
     // Prompt & input chessboard size, with retry on bad input
     while (true)
@@ -51,6 +51,16 @@ bool getInt(const std::string & prompt,  // Print this before doing input
     }
 
     return true;  // Successful input
+}
+
+// getIntC
+// Input an integer pointer. On non-fatal error, print message and retry. On
+// fatal error, return false. On successful input, set n to integer that
+// was read and return true.
+bool getIntC(const char* prompt,  // Print this before doing input
+            int* n)                // Number we input
+{
+    return getInt(std::string(prompt), *n);
 }
 
 //

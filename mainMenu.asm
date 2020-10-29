@@ -9,7 +9,7 @@ section .text
 bits 64
 
 extern printMenu
-extern getInt
+extern getIntC
 extern printErrMsg
 extern printInventory
 extern buyMenu
@@ -20,7 +20,7 @@ mainMenu:
 
     ; preserve function parameters
     push rdi ; player
-    push rdx ; shop
+    push rsi ; shop
 
 loopStart:
 
@@ -28,12 +28,10 @@ loopStart:
     call printMenu
 
     ; set up for getInt
-    mov rdi, [promptMsg]
-    ; we will put the outputted number on the stack (for now)
-    sub rsp, 8
-    mov rdx, [rsp]
+    mov rdi, promptMsg
+    mov rsi, inputNum
 
-    call getInt
+    call getIntC
     
     ; if the input succeeded, jump
     cmp rax, 0
@@ -45,9 +43,9 @@ loopStart:
 inputSucceeded:
 
     ;move the player and shop pointers from stack to use
-    pop rax ; rax = number returned
-    mov rdi, [rsp - 8]
-    mov rdx, [rsp]
+    mov rax, [inputNum]
+    pop rsi ; rsi = shop
+    pop rdi ; rdi = player
 
     ; 1 = print player inventory
     cmp rax, 1
@@ -86,11 +84,12 @@ shopSellMenu:
     jmp loopStart
 
 finish:
-    ; clean up the stack
-    add rsp, 2*8
-
     ; end the function, returns void
     ret
 
+section .data
 promptMsg:
     dq 'Enter the number next to your desired choice:', 0
+
+inputNum:
+    dd 0

@@ -44,7 +44,7 @@ int main()
 
     mainMenu(&player, &shop);
 
-    
+    /*
     // Variables for use inside loop
     int menuChoice = 0;
     bool keepGoing = true;
@@ -80,6 +80,6 @@ int main()
             printErrMsg();
             break;
         };
-    }
+    }*/
     return 0;
 }
