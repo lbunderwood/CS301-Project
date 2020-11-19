@@ -18,13 +18,16 @@ extern sellMenu
 global mainMenu
 mainMenu:
 
+    ;align the stack
+    push r11
+
     ; preserve function parameters
     push rdi ; player
     push rsi ; shop
 
 loopStart:
 
-    ; print the menu for the user12
+    ; print the menu for the user
     call printMenu
 
     ; set up for getInt
@@ -85,6 +88,7 @@ shopSellMenu:
 
 finish:
     ; end the function, returns void
+    pop r11
     ret
 
 section .data

@@ -88,7 +88,7 @@ void printInventory(Player* player)
     "\n----------------------------------------------------------"
     "\n|                    Player Inventory                    |"
     "\n----------------------------------------------------------\n\n"
-    << player->to_string()
+    << player->Inventory::to_string()
     << "\n\t\t\t\t\t     Shekels : " << std::to_string(player->getShekels()) << "\n";
 }
 
