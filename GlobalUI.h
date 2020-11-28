@@ -29,6 +29,8 @@ extern "C"
 
     void sellMenu( Player* player, Shop* shop);
 
+    void overflowErr();
+
 }
 
 #endif // #ifndef GLOBALUI_H

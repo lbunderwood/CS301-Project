@@ -7,9 +7,20 @@
 // Source file for Player : Inventory class
 
 #include "Player.h"
+#include "../GlobalUI.h"
 #include <iostream>
 #include <string>
 #include <ostream>
+
+void Player::printMenu()
+{
+    std::cout << 
+        "\n----------------------------------------------------------"
+        "\n|                    Player Inventory                    |"
+        "\n----------------------------------------------------------\n\n"
+        << Inventory::to_string()
+        << "\n\t\t\t\t\t     Shekels : " << std::to_string(shekels_) << "\n";
+}
 
 std::size_t& Player::getShekels()
 {
@@ -18,13 +29,11 @@ std::size_t& Player::getShekels()
 
 void Player::removeItem(std::size_t index)
 {
+    if(index >= items_.size()) 
+    {
+        printErrMsg();
+        return;
+    }
+
     items_.erase(items_.begin() + index);
 }
-
-/*
-std::ostream& operator<<(std::ostream& os, const Player& player)
-{
-    os << player.to_string();
-    return os;
-}
-*/

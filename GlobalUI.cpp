@@ -63,6 +63,13 @@ bool getIntC(const char* prompt,  // Print this before doing input
     return getInt(std::string(prompt), *n);
 }
 
+void wait()
+{
+    std::cout << "Press ENTER to continue.";
+    std::string line;
+    std::getline(std::cin, line);
+}
+
 //
 void printMenu()
 {
@@ -79,17 +86,44 @@ void printMenu()
 
 void printErrMsg()
 {
-    std::cout << "Invalid Input. Try Again.";
+    std::cout << "Invalid Input. Try Again.\n";
+    wait();
+}
+
+void overflowErr()
+{
+    std::cout << "\nSomeone had insufficient funds.\n"
+        "You may only buy things that you have the money for and sell things that the shop has money for.\n\n"
+        "Alternatively, it is possible that you have reached the maximum number of shekels.\n"
+        "If this is the case, congratulations!\n";
+    wait();
+}
+
+
+bool getInput(int& itemNum, std::string action)
+{
+    if(!getInt("Enter the number beside the item you would like to " + action + ", or a 0 to exit:", itemNum)
+        || itemNum < 0)
+    {
+        std::cout << "Fatal input error. Trying again.\n";
+        return false;
+    }
+    return true;
 }
 
 void printInventory(Player* player)
 {
-    std::cout << 
-    "\n----------------------------------------------------------"
-    "\n|                    Player Inventory                    |"
-    "\n----------------------------------------------------------\n\n"
-    << player->Inventory::to_string()
-    << "\n\t\t\t\t\t     Shekels : " << std::to_string(player->getShekels()) << "\n";
+    while(true)
+    {
+        player->printMenu();
+
+        int itemNum = 0;
+        if(!getInput(itemNum, "drop")) continue;
+
+        if(itemNum == 0) break;
+
+        player->removeItem(itemNum - 1);
+    }
 }
 
 void buyMenu(Player* player, Shop* shop)
@@ -99,12 +133,7 @@ void buyMenu(Player* player, Shop* shop)
         shop->printBuyMenu(*player);
 
         int itemNum = 0;
-        if(!getInt("Enter the number beside the item you would like to buy, or a 0 to exit:", itemNum)
-            || itemNum < 0)
-        {
-            std::cout << "Fatal input error. Trying again.";
-            continue;
-        }
+        if(!getInput(itemNum, "buy")) continue;
 
         if(itemNum == 0) break;
 
@@ -119,12 +148,7 @@ void sellMenu(Player* player, Shop* shop)
         shop->printSellMenu(*player);
 
         int itemNum = 0;    
-        if(!getInt("Enter the number beside the item you would like to sell, or a 0 to exit:", itemNum)
-            || itemNum < 0)
-        {
-            std::cout << "Fatal input error. Trying again.";
-            continue;
-        }
+        if(!getInput(itemNum, "sell")) continue;
 
         if(itemNum == 0) break;
 

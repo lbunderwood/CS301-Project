@@ -17,7 +17,13 @@
 
 void Shop::buyItem(std::size_t index, Player& player)
 {
-    moveMoney(&player.getShekels(), &shekels_, items_[index].getValue());
+    if(index >= items_.size())
+    {
+        printErrMsg();
+        return;
+    }
+
+    if(!moveMoney(&player.getShekels(), &shekels_, items_[index].getValue())) return;
 
     player.push_back(items_[index]);
     items_.erase(items_.begin() + index);
@@ -25,7 +31,13 @@ void Shop::buyItem(std::size_t index, Player& player)
 
 void Shop::sellItem(std::size_t index, Player& player)
 {
-    moveMoney(&shekels_, &player.getShekels(), items_[index].getValue());
+    if(index >= player.items_.size())
+    {
+        printErrMsg();
+        return;
+    }
+
+    if(!moveMoney(&shekels_, &player.getShekels(), items_[index].getValue())) return;
 
     push_back(player[index]);
     player.removeItem(index);

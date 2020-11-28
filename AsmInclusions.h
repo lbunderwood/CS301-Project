@@ -16,6 +16,6 @@
 extern "C" void mainMenu(Player*, Shop*);
 
 // Links to functions.asm
-extern "C" void moveMoney(std::size_t*, std::size_t*, int);
+extern "C" bool moveMoney(std::size_t*, std::size_t*, int);
 
 #endif // #include ASMFUNCTIONS_H

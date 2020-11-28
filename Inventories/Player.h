@@ -21,9 +21,13 @@ public:
 
     Player(std::vector<Item> items) : Inventory(items), shekels_(10) {};
 
+    void printMenu();
+
     std::size_t& getShekels();
 
     void removeItem(std::size_t index);
+
+    friend class Shop;
 
 private:
 
