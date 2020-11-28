@@ -44,42 +44,5 @@ int main()
 
     mainMenu(&player, &shop);
 
-    /*
-    // Variables for use inside loop
-    int menuChoice = 0;
-    bool keepGoing = true;
-
-    // Main Program Loop
-    while(keepGoing)
-    {
-        printMenu();
-
-        // Get input
-        if(!getInt("Enter the number next to your desired choice:", menuChoice))
-        {
-            printErrMsg();
-            continue;
-        }
-
-        // Use the input
-        switch(menuChoice)
-        {
-        case 1:
-            printInventory(&player);
-            break;
-        case 2:
-            sellMenu(&player, &shop);
-            break;
-        case 3:
-            buyMenu(&player, &shop);
-            break;
-        case 0:
-            keepGoing = false;
-            break;
-        default:
-            printErrMsg();
-            break;
-        };
-    }*/
     return 0;
 }

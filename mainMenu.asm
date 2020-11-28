@@ -47,8 +47,8 @@ inputSucceeded:
 
     ;move the player and shop pointers from stack to use
     mov rax, [inputNum]
-    pop rsi ; rsi = shop
-    pop rdi ; rdi = player
+    mov rsi, [rsp] ; rsi = shop
+    mov rdi, [rsp + 8] ; rdi = player
 
     ; 1 = print player inventory
     cmp rax, 1
@@ -56,11 +56,11 @@ inputSucceeded:
 
     ; 2 = enter the buy menu
     cmp rax, 2
-    je shopBuyMenu
+    je shopSellMenu
 
     ; 3 = enter the sell menu
     cmp rax, 3
-    je shopSellMenu
+    je shopBuyMenu
 
     ; 0 = get out of here
     cmp rax, 0
@@ -75,20 +75,21 @@ printPlayerInv:
 
     call printInventory
     jmp loopStart
+    
+shopSellMenu:
+
+    call sellMenu
+    jmp loopStart
 
 shopBuyMenu:
 
     call buyMenu
     jmp loopStart
 
-shopSellMenu:
-
-    call sellMenu
-    jmp loopStart
-
 finish:
-    ; end the function, returns void
-    pop r11
+    ; reset stack, equivalent to 3x pop
+    add rsp, 24
+    ; exit function, returns void
     ret
 
 section .data
