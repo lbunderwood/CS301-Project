@@ -80,6 +80,8 @@ std::string effectString(Effect effect)
     {
         return "Resist Ice";
     }
+
+    return "";
 }
 
 #endif // #ifndef EFFECT_H

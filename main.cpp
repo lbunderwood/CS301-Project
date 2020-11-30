@@ -20,7 +20,6 @@
 
 int main()
 {
-
     // initialize player inventory
     Player player(std::vector<Item>
         {
@@ -29,18 +28,8 @@ int main()
             Item("Plain Clothes", 15, true)
         });
 
-    // initialize shop inventory
-    // This will later be replaced with a randomly-stocked shop
-    Shop shop(std::vector<Item>
-        {
-            Item("Milk", 3, true),
-            Item("Cooked Steak", 7, true),
-            Item("Arrows X5", 20, true),
-            Item("Traveller's Cloak", 30, true),
-            Item("Torch", 10, true),
-            Item("Leather Strips", 12, true),
-            Item("Steel Shortsword", 40, true)
-        }, 100);
+    // default-construct shop, since items are added by buyMenu
+    Shop shop;
 
     mainMenu(&player, &shop);
 

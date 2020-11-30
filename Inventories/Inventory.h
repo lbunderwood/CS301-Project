@@ -18,6 +18,8 @@ class Inventory
 {
 public:
 
+    Inventory() = default;
+
     Inventory(std::vector<Item> items)
         : items_(items) {}
 
@@ -29,7 +31,7 @@ public:
 
     Item operator[](std::size_t index);
 
-    void restock(int count);
+    void restock(std::size_t count);
 
 protected:
 

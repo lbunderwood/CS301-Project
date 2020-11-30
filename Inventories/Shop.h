@@ -19,6 +19,8 @@ class Shop : public Inventory
 {
 public:
 
+    Shop() : Inventory(), shekels_(500) {}
+
     Shop(std::vector<Item> items, std::size_t shekels) 
         : Inventory(items), shekels_(shekels) {}
 

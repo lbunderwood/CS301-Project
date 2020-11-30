@@ -128,6 +128,8 @@ void printInventory(Player* player)
 
 void buyMenu(Player* player, Shop* shop)
 {
+    shop->restock(15);
+    
     while(true)
     {
         shop->printBuyMenu(*player);
