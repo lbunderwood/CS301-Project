@@ -19,7 +19,14 @@ class Weapon : public Item
 public:
 
     // Default Constructor
-    Weapon();
+    Weapon() = delete;
+
+    Weapon(const std::string& name, int value, int attack, Effect effect, bool sellable)
+        : Item(name, value, sellable), attack_(attack), effect_(effect) {}
+
+    std::string to_string() const;
+
+    void createRandom();
 
 private:
 

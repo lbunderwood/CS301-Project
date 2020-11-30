@@ -30,6 +30,8 @@ add_executable(InventoryAndShop
     Inventories/Player.cpp
     Inventories/Shop.h
     Inventories/Shop.cpp
+    Inventories/Lootable.h
+    Inventories/Lootable.cpp
 )
 
 set_property(TARGET InventoryAndShop PROPERTY POSITION_INDEPENDENT_CODE FALSE)

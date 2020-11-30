@@ -13,10 +13,19 @@
 
 // Armor item
 // has a name, monetary value, defense rating, and effect
-// can have effects "INCREASE" "RESIST" "NONE" (4-6, 10-12)
+// can have effects "INCREASE" "RESIST" "NONE" (0, 4-6, 10-12)
 class Armor : public Item
 {
 public:
+
+    Armor() = delete;
+
+    Armor(const std::string& name, int value, int defense, Effect effect, bool sellable) 
+        : Item(name, value, sellable), defense_(defense), effect_(effect) {}
+    
+    std::string to_string() const;
+
+    void createRandom();
 
 private:
     int defense_;

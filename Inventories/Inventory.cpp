@@ -12,7 +12,7 @@
 
 std::string Inventory::to_string() const
 {
-    std::string output = "                 name:   atk/def:    effect:     value:\n\n";
+    std::string output = "                           name:       strength:              effect:          value:\n\n";
 
     for(std::size_t i = 0; i < items_.size(); ++i)
     {
@@ -22,7 +22,7 @@ std::string Inventory::to_string() const
     return output;
 }
 
-void Inventory::push_back(Item item)
+void Inventory::push_back(const Item& item)
 {
     items_.push_back(item);
 }
@@ -35,4 +35,9 @@ void Inventory::pop_back()
 Item Inventory::operator[](std::size_t index)
 {
     return items_[index];
+}
+
+void Inventory::restock(int count)
+{
+
 }

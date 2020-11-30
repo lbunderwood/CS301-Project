@@ -23,11 +23,13 @@ public:
 
     std::string to_string() const;
 
-    void push_back(Item item);
+    void push_back(const Item& item);
 
     void pop_back();
 
     Item operator[](std::size_t index);
+
+    void restock(int count);
 
 protected:
 

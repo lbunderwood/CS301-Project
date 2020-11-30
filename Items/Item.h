@@ -18,7 +18,7 @@ class Item
 public:
 
     //Constructors
-    Item() : Item("VOID", 0, true) {}
+    Item() = delete;
 
     Item(std::string name, int value, bool sellable) : 
         name_(name), value_(value), sellable_(sellable) {}
@@ -28,6 +28,8 @@ public:
     int getValue() const;
 
     bool isSellable();
+
+    void createRandom();
 
 protected:
 

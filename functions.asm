@@ -18,12 +18,13 @@ moveMoney:
     mov r8, [rdi]
     sub r8, rdx     ; subtract
     jc overflow     ; check for overflow
-    mov [rdi], r8   ; commit change
 
     mov r9, [rsi] 
     add r9, rdx     ; add
     jc overflow     ; check for overflow
-    mov [rsi], r9   ; commit change
+    
+    mov [rdi], r8   ; commit change for subtraction
+    mov [rsi], r9   ; commit change for addition
 
     ; return 1 to signal a success
     mov rax, 1
