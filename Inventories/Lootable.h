@@ -9,10 +9,17 @@
 #define LOOTABLE_H
 
 #include "Inventory.h"
+#include "Player.h"
 
 class Lootable : public Inventory
 {
 public:
+
+    Lootable() : Inventory() {}
+
+    void takeItem(std::size_t index, Player& player);
+
+    void printLootMenu();
 
 private:
 

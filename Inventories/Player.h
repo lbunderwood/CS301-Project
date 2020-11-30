@@ -21,7 +21,7 @@ public:
 
     Player() : shekels_(10) {}
 
-    Player(std::vector<Item*> items) : Inventory(items), shekels_(10) {}
+    Player(std::vector<itemPtr> items) : Inventory(items), shekels_(10) {}
 
     void printMenu();
 

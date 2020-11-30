@@ -12,6 +12,7 @@
 
 #include "Inventories/Shop.h"
 #include "Inventories/Player.h"
+#include "Inventories/Lootable.h"
 
 extern "C" 
 {
@@ -27,7 +28,11 @@ extern "C"
 
     void buyMenu(Player* player, Shop* shop);
 
-    void sellMenu( Player* player, Shop* shop);
+    void sellMenu(Player* player, Shop* shop);
+
+    void resetShop(Shop* shop);
+
+    void lootMenu(Player* player, Lootable* lootable);
 
     void overflowErr();
 

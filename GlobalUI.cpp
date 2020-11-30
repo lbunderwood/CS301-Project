@@ -75,12 +75,13 @@ void printMenu()
 {
     std::cout <<
         "\n----------------------------------------------------------"
-        "\n|                  Welcome to The Shop!                  |"
+        "\n|                      Actions Menu                      |"
         "\n----------------------------------------------------------\n\n"
         "\t1. View Inventory\n"
         "\t2. Shop - Sell Items\n"
         "\t3. Shop - Buy Items\n"
-        "\t4. Loot a Chest\n\n"
+        "\t4. Shop - Reset\n"
+        "\t5. Loot a Chest\n\n"
         "\t0. Exit\n\n";
 }
 
@@ -128,8 +129,6 @@ void printInventory(Player* player)
 
 void buyMenu(Player* player, Shop* shop)
 {
-    shop->restock(15);
-
     while(true)
     {
         shop->printBuyMenu(*player);
@@ -155,5 +154,30 @@ void sellMenu(Player* player, Shop* shop)
         if(itemNum == 0) break;
 
         shop->sellItem(itemNum - 1, *player);
+    }
+}
+
+void resetShop(Shop* shop)
+{
+    shop->restock(15);
+    shop->setShekels(500);
+
+    std::cout << "\nThe Shop had been restocked!\n";
+    wait();
+}
+
+void lootMenu(Player* player, Lootable* lootable)
+{
+    lootable->restock(6);
+    while(true)
+    {
+        lootable->printLootMenu();
+
+        int itemNum = 0;    
+        if(!getInput(itemNum, "take")) continue;
+
+        if(itemNum == 0) break;
+
+        lootable->takeItem(itemNum - 1, *player);
     }
 }

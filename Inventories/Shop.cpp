@@ -38,8 +38,9 @@ void Shop::sellItem(std::size_t index, Player& player)
     }
 
     if(!moveMoney(&shekels_, &player.getShekels(), player[index]->getValue())) return;
-
-    push_back(player[index]);
+    
+    auto item = player[index];
+    push_back(item);
     player.removeItem(index);
 }
 
@@ -47,16 +48,21 @@ void Shop::printBuyMenu(Player& player)
 {
     std::cout << banner 
               << to_string() 
-              << "\n\t\t\t\t\t     Shekels : " 
+              << "\n\t\t\t\t\t\t\t\t     Your Shekels : " 
               << std::to_string(player.getShekels()) 
-              << "\nWhat would you like to buy?\n";    
+              << "\n\nWhat would you like to buy?\n";    
 }
 
 void Shop::printSellMenu(Player& player)
 {
     std::cout << banner 
               << player.to_string() 
-              << "\n\t\t\t\t\tShop Shekels : "
+              << "\n\t\t\t\t\t\t\t\t     Shop Shekels : "
               << std::to_string(shekels_)
-              << "\nWhat would you like to sell?\n";  
+              << "\n\nWhat would you like to sell?\n";  
+}
+
+void Shop::setShekels(std::size_t shekels)
+{
+    shekels_ = shekels;
 }

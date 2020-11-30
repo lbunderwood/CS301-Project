@@ -31,29 +31,24 @@ std::string Inventory::to_string() const
     return output.str();
 }
 
-void Inventory::push_back(Item* item)
+void Inventory::push_back(itemPtr& item)
 {
     items_.push_back(item);
 }
 
-Item* Inventory::operator[](std::size_t index)
+Inventory::itemPtr Inventory::operator[](std::size_t index)
 {
     return items_[index];
 }
 
 void Inventory::restock(std::size_t count)
 {
-    // clear our old inventory
-    for(auto m : items_)
-    {
-        delete m;
-    }
     items_.clear();
     
     // add some regular items
     for(std::size_t i = 0; i < std::floor((double)count/2.0); ++i)
     {
-        Item* item = new Item("VOID", 0, true);
+        itemPtr item = std::make_shared<Item>("VOID", 0, true);
         item->createRandom();
         push_back(item);
     }
@@ -61,7 +56,7 @@ void Inventory::restock(std::size_t count)
     // add some weapons
     for(std::size_t i = 0; i < std::ceil((double)count/6); ++i)
     {
-        Item* item = new Weapon("VOID", 0, 0, Effect::NONE, true);
+        itemPtr item = std::make_shared<Weapon>("VOID", 0, 0, Effect::NONE, true);
         item->createRandom();
         push_back(item);
     }
@@ -69,7 +64,7 @@ void Inventory::restock(std::size_t count)
     // add some armor
     for(std::size_t i = 0; i < std::ceil((double)count/6); ++i)
     {
-        Item* item = new Armor("VOID", 0, 0, Effect::NONE, true);
+        itemPtr item = std::make_shared<Armor>("VOID", 0, 0, Effect::NONE, true);
         item->createRandom();
         push_back(item);
     }
@@ -77,7 +72,7 @@ void Inventory::restock(std::size_t count)
     // add some potions
     for(std::size_t i = 0; i < std::ceil((double)count/6); ++i)
     {
-        Item* item = new Potion("VOID", 0, 0, Effect::NONE, true);
+        itemPtr item = std::make_shared<Potion>("VOID", 0, 0, Effect::NONE, true);
         item->createRandom();
         push_back(item);
     }

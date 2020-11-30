@@ -11,6 +11,7 @@
 
 #include <vector>
 #include <cstddef>
+#include <memory>
 
 #include "../Items/Item.h"
 
@@ -18,22 +19,24 @@ class Inventory
 {
 public:
 
+    using itemPtr = std::shared_ptr<Item>;
+
     Inventory() = default;
 
-    Inventory(std::vector<Item*> items)
+    Inventory(std::vector<itemPtr> items)
         : items_(items) {}
 
     std::string to_string() const;
 
-    void push_back(Item* item);
+    void push_back(itemPtr& item);
 
-    Item* operator[](std::size_t index);
+    itemPtr operator[](std::size_t index);
 
     void restock(std::size_t count);
 
 protected:
 
-    std::vector<Item*> items_;
+    std::vector<itemPtr> items_;
 
 };
 

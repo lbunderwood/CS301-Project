@@ -22,18 +22,22 @@
 int main()
 {    
     // initialize player inventory
-    Weapon dagger("Iron Dagger", 10, 3, Effect::NONE, true);
-    Item rope("Rope", 10, true);
-    Item clothes("Plain Clothes", 15, true);
+    Inventory::itemPtr dagger = std::make_shared<Weapon>("Iron Dagger", 10, 3, Effect::NONE, true);
+    Inventory::itemPtr rope = std::make_shared<Item>("Rope", 10, true);
+    Inventory::itemPtr clothes = std::make_shared<Item>("Plain Clothes", 15, true);
     Player player;
-    player.push_back((Item*)&dagger);
-    player.push_back(&rope);
-    player.push_back(&clothes);
+    player.push_back(dagger);
+    player.push_back(rope);
+    player.push_back(clothes);
 
-    // default-construct shop, since items are added by buyMenu
+    // default-construct shop, then randomly insert some items
     Shop shop;
+    shop.restock(15);
 
-    mainMenu(&player, &shop);
+    // default construct lootable, it is stocked automatically later
+    Lootable chest;
+
+    mainMenu(&player, &shop, &chest);
 
     return 0;
 }

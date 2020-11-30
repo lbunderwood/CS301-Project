@@ -14,16 +14,16 @@ extern printErrMsg
 extern printInventory
 extern buyMenu
 extern sellMenu
+extern lootMenu
+extern resetShop
 
 global mainMenu
 mainMenu:
 
-    ;align the stack
-    push r11
-
     ; preserve function parameters
-    push rdi ; player
-    push rsi ; shop
+    push rdi ; player = rsp + 16
+    push rsi ; shop = rsp + 8
+    push rdx ; lootable = rsp
 
 loopStart:
 
@@ -47,8 +47,6 @@ inputSucceeded:
 
     ;move the player and shop pointers from stack to use
     mov rax, [inputNum]
-    mov rsi, [rsp] ; rsi = shop
-    mov rdi, [rsp + 8] ; rdi = player
 
     ; 1 = print player inventory
     cmp rax, 1
@@ -62,6 +60,14 @@ inputSucceeded:
     cmp rax, 3
     je shopBuyMenu
 
+    ; 4 = reset the shop
+    cmp rax, 4
+    je reset
+
+    ; 5 = open a lootable
+    cmp rax, 5
+    je loot
+
     ; 0 = get out of here
     cmp rax, 0
     je finish
@@ -73,17 +79,36 @@ inputFailed:
 
 printPlayerInv:
 
+    mov rsi, [rsp + 8] ; rsi = shop
+    mov rdi, [rsp + 16] ; rdi = player
     call printInventory
     jmp loopStart
     
 shopSellMenu:
 
+    mov rsi, [rsp + 8] ; rsi = shop
+    mov rdi, [rsp + 16] ; rdi = player
     call sellMenu
     jmp loopStart
 
 shopBuyMenu:
 
+    mov rsi, [rsp + 8] ; rsi = shop
+    mov rdi, [rsp + 16] ; rdi = player
     call buyMenu
+    jmp loopStart
+
+reset:
+
+    mov rdi, [rsp + 8] ; rdi = shop
+    call resetShop
+    jmp loopStart
+
+loot:
+
+    mov rsi, [rsp] ; rsi = lootable
+    mov rdi, [rsp + 16] ; rdi = player
+    call lootMenu
     jmp loopStart
 
 finish:
