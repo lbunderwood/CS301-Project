@@ -46,12 +46,12 @@ void Potion::createRandom()
     // mt random number generation setup
     std::random_device r; 
 	std::mt19937 gen(r());
-	std::uniform_int_distribution<> typeDist(1, 12);
+	std::uniform_int_distribution<> typeDist(0, 11);
 
     // generate value for type, potency, and Effect
     int type = typeDist(gen);
     int potency = typeDist(gen) * 2;
-    Effect effect = (Effect)type;
+    Effect effect = (Effect)(type+1);
 
     // assign potion to have the generated values
     name_ = types[type].first;
