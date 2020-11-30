@@ -6,11 +6,12 @@
 // Source file for Armor : Item class
 
 #include "Armor.h"
+#include "Effect.h"
 
 #include <vector>
 #include <tuple>
 #include <random>
-#include <strstream>
+#include <sstream>
 #include <iomanip>
 
 std::string Armor::to_string() const
@@ -81,7 +82,7 @@ void Armor::createRandom()
     }
     
     // assign armor to have the generated values
-    name_ = std::get<0>(armorTypes[type]) + std::get<0>(modifiers[mod]);
+    name_ =  std::get<0>(modifiers[mod]) + std::get<0>(armorTypes[type]);
     value_ = std::get<1>(armorTypes[type]) + std::get<1>(modifiers[mod]) + 
             (effectNum == 0 ? 0 : 20);
     defense_ = std::get<2>(armorTypes[type]) + std::get<2>(modifiers[mod]);

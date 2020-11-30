@@ -6,7 +6,7 @@
 // Source file for item class
 
 #include <iomanip>
-#include <strstream>
+#include <sstream>
 #include <vector>
 #include <random>
 

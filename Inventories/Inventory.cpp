@@ -15,18 +15,20 @@
 
 #include <string>
 #include <cmath>
+#include <sstream>
+#include <iomanip>
 
 std::string Inventory::to_string() const
 {
-    std::string output = 
-        "                           name:       strength:              effect:          value:\n\n";
+    std::stringstream output;
+    output << "                             name:       strength:              effect:          value:\n\n";
 
     for(std::size_t i = 0; i < items_.size(); ++i)
     {
-        output += std::to_string(i + 1) + items_[i].to_string() + "\n";
+        output << std::setw(3) << std::to_string(i + 1) << items_[i].to_string() << "\n";
     }
 
-    return output;
+    return output.str();
 }
 
 void Inventory::push_back(const Item& item)

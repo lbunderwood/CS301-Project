@@ -6,11 +6,12 @@
 // Source file for Weapon : Item class
 
 #include "Weapon.h"
+#include "Effect.h"
 
 #include <vector>
 #include <random>
 #include <tuple>
-#include <strstream>
+#include <sstream>
 #include <iomanip>
 
 std::string Weapon::to_string() const
@@ -70,7 +71,7 @@ void Weapon::createRandom()
     Effect effect = (Effect)typeDist(gen);
 
     // assign weapon to have the generated values
-    name_ = std::get<0>(weaponTypes[type]) + std::get<0>(modifiers[mod]);
+    name_ =  std::get<0>(modifiers[mod]) + std::get<0>(weaponTypes[type]);
     value_ = std::get<1>(weaponTypes[type]) + std::get<1>(modifiers[mod]) + 
             (effect == Effect::NONE ? 0 : 20);
     attack_ = std::get<2>(weaponTypes[type]) + std::get<2>(modifiers[mod]);

@@ -6,11 +6,12 @@
 // Source file for Potion : Item class
 
 #include "Potion.h"
+#include "Effect.h"
 
 #include <utility>
 #include <vector>
 #include <random>
-#include <strstream>
+#include <sstream>
 #include <iomanip>
 
 std::string Potion::to_string() const

@@ -18,6 +18,7 @@ add_executable(InventoryAndShop
     Items/Item.h
     Items/Item.cpp
     Items/Effect.h
+    Items/Effect.cpp
     Items/Armor.h
     Items/Armor.cpp
     Items/Weapon.cpp
