@@ -23,7 +23,7 @@ void Shop::buyItem(std::size_t index, Player& player)
         return;
     }
 
-    if(!moveMoney(&player.getShekels(), &shekels_, items_[index].getValue())) return;
+    if(!moveMoney(&player.getShekels(), &shekels_, items_[index]->getValue())) return;
 
     player.push_back(items_[index]);
     items_.erase(items_.begin() + index);
@@ -37,7 +37,7 @@ void Shop::sellItem(std::size_t index, Player& player)
         return;
     }
 
-    if(!moveMoney(&shekels_, &player.getShekels(), items_[index].getValue())) return;
+    if(!moveMoney(&shekels_, &player.getShekels(), player[index]->getValue())) return;
 
     push_back(player[index]);
     player.removeItem(index);

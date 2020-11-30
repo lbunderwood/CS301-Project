@@ -17,10 +17,10 @@
 std::string Armor::to_string() const
 {
     std::stringstream output;
-    output << std::setw(20) << name_ << " "
-           << std::setw(10) << defense_ << " "
-           << std::setw(10) << effectString(effect_) << " "
-           << std::setw(10) << value_;
+    output << std::setw(30) << name_ << " "
+           << std::setw(15) << defense_ << " "
+           << std::setw(20) << effectString(effect_) << " "
+           << std::setw(15) << value_;
     return output.str();
 }
 

@@ -24,7 +24,7 @@ public:
         : Item(name, value, sellable), potency_(potency), effect_(effect) {}
 
     std::string to_string() const;
-    
+
     void createRandom();
 
 private:

@@ -25,58 +25,60 @@ std::string Inventory::to_string() const
 
     for(std::size_t i = 0; i < items_.size(); ++i)
     {
-        output << std::setw(3) << std::to_string(i + 1) << items_[i].to_string() << "\n";
+        output << std::setw(3) << std::to_string(i + 1) << items_[i]->to_string() << "\n";
     }
 
     return output.str();
 }
 
-void Inventory::push_back(const Item& item)
+void Inventory::push_back(Item* item)
 {
     items_.push_back(item);
 }
 
-void Inventory::pop_back()
-{
-    items_.pop_back();
-}
-
-Item Inventory::operator[](std::size_t index)
+Item* Inventory::operator[](std::size_t index)
 {
     return items_[index];
 }
 
 void Inventory::restock(std::size_t count)
 {
+    // clear our old inventory
+    for(auto m : items_)
+    {
+        delete m;
+    }
+    items_.clear();
+    
     // add some regular items
     for(std::size_t i = 0; i < std::floor((double)count/2.0); ++i)
     {
-        Item item("VOID", 0, true);
-        item.createRandom();
+        Item* item = new Item("VOID", 0, true);
+        item->createRandom();
         push_back(item);
     }
 
     // add some weapons
     for(std::size_t i = 0; i < std::ceil((double)count/6); ++i)
     {
-        Weapon item("VOID", 0, 0, Effect::NONE, true);
-        item.createRandom();
+        Item* item = new Weapon("VOID", 0, 0, Effect::NONE, true);
+        item->createRandom();
         push_back(item);
     }
     
     // add some armor
     for(std::size_t i = 0; i < std::ceil((double)count/6); ++i)
     {
-        Armor item("VOID", 0, 0, Effect::NONE, true);
-        item.createRandom();
+        Item* item = new Armor("VOID", 0, 0, Effect::NONE, true);
+        item->createRandom();
         push_back(item);
     }
     
     // add some potions
     for(std::size_t i = 0; i < std::ceil((double)count/6); ++i)
     {
-        Potion item("VOID", 0, 0, Effect::NONE, true);
-        item.createRandom();
+        Item* item = new Potion("VOID", 0, 0, Effect::NONE, true);
+        item->createRandom();
         push_back(item);
     }
 }

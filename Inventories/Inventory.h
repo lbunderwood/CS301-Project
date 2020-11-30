@@ -20,22 +20,20 @@ public:
 
     Inventory() = default;
 
-    Inventory(std::vector<Item> items)
+    Inventory(std::vector<Item*> items)
         : items_(items) {}
 
     std::string to_string() const;
 
-    void push_back(const Item& item);
+    void push_back(Item* item);
 
-    void pop_back();
-
-    Item operator[](std::size_t index);
+    Item* operator[](std::size_t index);
 
     void restock(std::size_t count);
 
 protected:
 
-    std::vector<Item> items_;
+    std::vector<Item*> items_;
 
 };
 

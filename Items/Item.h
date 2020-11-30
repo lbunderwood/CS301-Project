@@ -23,13 +23,13 @@ public:
     Item(std::string name, int value, bool sellable) : 
         name_(name), value_(value), sellable_(sellable) {}
 
-    std::string to_string() const;
+    virtual std::string to_string() const;
 
     int getValue() const;
 
     bool isSellable();
 
-    void createRandom();
+    virtual void createRandom();
 
 protected:
 

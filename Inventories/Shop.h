@@ -21,7 +21,7 @@ public:
 
     Shop() : Inventory(), shekels_(500) {}
 
-    Shop(std::vector<Item> items, std::size_t shekels) 
+    Shop(std::vector<Item*> items, std::size_t shekels) 
         : Inventory(items), shekels_(shekels) {}
 
     void buyItem(std::size_t index, Player& player);

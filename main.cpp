@@ -20,16 +20,15 @@
 #include "GlobalUI.h"
 
 int main()
-{
-
+{    
+    // initialize player inventory
     Weapon dagger("Iron Dagger", 10, 3, Effect::NONE, true);
     Item rope("Rope", 10, true);
     Item clothes("Plain Clothes", 15, true);
-    // initialize player inventory
     Player player;
-    player.push_back((Item)dagger);
-    player.push_back(rope);
-    player.push_back(clothes);
+    player.push_back((Item*)&dagger);
+    player.push_back(&rope);
+    player.push_back(&clothes);
 
     // default-construct shop, since items are added by buyMenu
     Shop shop;
