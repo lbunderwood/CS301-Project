@@ -28,6 +28,8 @@ enum class Effect
     RESIST_ICE,
 };
 
+// effectString
+// see discription in Effect.cpp
 std::string effectString(Effect effect);
 
 #endif // #ifndef EFFECT_H

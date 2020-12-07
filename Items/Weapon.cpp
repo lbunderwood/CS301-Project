@@ -14,16 +14,23 @@
 #include <sstream>
 #include <iomanip>
 
+// Weapon::to_string
+// returns a string of the weapon's stats, for display in an inventory
 std::string Weapon::to_string() const
 {
+    // build stringstream
     std::stringstream output;
     output << std::setw(30) << name_ << " "
            << std::setw(15) << attack_ << " "
            << std::setw(20) << effectString(effect_) << " "
            << std::setw(15) << value_;
+    
+    // return the string created
     return output.str();
 }
 
+// Weapon::createRandom
+// makes this weapon into a random new one, for creating random items in inventories
 void Weapon::createRandom()
 {   
     // Different types of weapons, first int is value, second is attack

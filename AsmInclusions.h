@@ -9,11 +9,16 @@
 #define ASMINCLUSIONS_H
 
 #include <cstddef>
-#include "Inventories/Player.h"
-#include "Inventories/Shop.h"
-#include "Inventories/Lootable.h"
+// For std::size_t
 
-// Links to main.asm
+#include "Inventories/Player.h"
+// For class Player
+#include "Inventories/Shop.h"
+// For class Shop
+#include "Inventories/Lootable.h"
+// For class Lootable
+
+// Links to mainMenu.asm
 extern "C" void mainMenu(Player*, Shop*, Lootable*);
 
 // Links to functions.asm

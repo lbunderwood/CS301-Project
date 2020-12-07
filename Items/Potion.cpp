@@ -14,16 +14,24 @@
 #include <sstream>
 #include <iomanip>
 
+
+// Potion::to_string
+// returns a string of the potion's stats, for display in an inventory
 std::string Potion::to_string() const
 {
+    // create stringstream
     std::stringstream output;
     output << std::setw(30) << name_ << " "
            << std::setw(15) << potency_ << " "
            << std::setw(20) << effectString(effect_) << " "
            << std::setw(15) << value_;
+
+    // return the string created
     return output.str();
 }
 
+// Potion::createRandom
+// makes this potion into a random new one, for creating random items in inventories
 void Potion::createRandom()
 {   
     // Different types of potions, int is the value multiplier

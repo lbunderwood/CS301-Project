@@ -9,12 +9,16 @@
 
 #include <string>
 
+// effectString
+// takes an Effect, returns a string relating to the effect
 std::string effectString(Effect effect)
 {
+    // return an empty string if there is no effect
     if(effect == Effect::NONE)
     {
         return "";
     }
+    // return a string that tells the user what the item does
     else if(effect == Effect::REGAIN_HEALTH)
     {
         return "Healing";
@@ -64,5 +68,6 @@ std::string effectString(Effect effect)
         return "Resist Ice";
     }
 
+    // if we got here, something is broken and we want to just act like there's no effect
     return "";
 }

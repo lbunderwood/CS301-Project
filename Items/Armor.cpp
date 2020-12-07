@@ -14,16 +14,23 @@
 #include <sstream>
 #include <iomanip>
 
+// Armor::to_string
+// returns a string of the armor's stats, for display in an inventory
 std::string Armor::to_string() const
 {
+    // create stringstream
     std::stringstream output;
     output << std::setw(30) << name_ << " "
            << std::setw(15) << defense_ << " "
            << std::setw(20) << effectString(effect_) << " "
            << std::setw(15) << value_;
+
+    // return the string that was created
     return output.str();
 }
 
+// Armor::createRandom
+// makes this armor into a random new one, for creating random items in inventories
 void Armor::createRandom()
 {
     // Different types of armor, first int is value, second is defense

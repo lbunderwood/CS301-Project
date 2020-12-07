@@ -5,9 +5,7 @@
 // InventoryAndShop
 // Source file containing main function
 
-#include <iostream>
-#include <ostream>
-
+// include all the headers
 #include "Items/Item.h"
 #include "Items/Weapon.h"
 #include "Items/Armor.h"
@@ -37,6 +35,7 @@ int main()
     // default construct lootable, it is stocked automatically later
     Lootable chest;
 
+    // call the real main function in assembly
     mainMenu(&player, &shop, &chest);
 
     return 0;
