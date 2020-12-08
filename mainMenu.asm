@@ -8,6 +8,7 @@
 section .text
 bits 64
 
+; give us access to c++ functions
 extern printMenu
 extern getIntC
 extern printErrMsg
@@ -117,9 +118,10 @@ finish:
     ; exit function, returns void
     ret
 
-section .data
-promptMsg:
+section .data   ; make this data modifyable for inputNum
+
+promptMsg:      ; prompt for getInt
     dq 'Enter the number next to your desired choice:', 0
 
-inputNum:
+inputNum:       ; holds input from getInt
     dd 0

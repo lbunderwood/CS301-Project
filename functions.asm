@@ -6,7 +6,6 @@
 ; Assembly file containing various back-end functions
 
 section .text
-
 bits 64
 
 extern overflowErr
